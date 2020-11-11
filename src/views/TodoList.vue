@@ -1,6 +1,7 @@
 <template>
   <div>
     <button class="button" @click="toCreateTodo">新規作成</button>
+    <h1>Todoリスト</h1>
     <Todo
       v-for="todo in this.$root.todos"
       :key="todo.id"
@@ -17,7 +18,7 @@ export default {
   },
   methods: {
     toCreateTodo() {
-      this.$router.push("/todo");
+      this.$router.push("/create");
     }
   },
 };

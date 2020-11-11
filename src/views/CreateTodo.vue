@@ -1,6 +1,7 @@
 <template>
   <div id="create-todo">
     <router-link to="/">＜ 戻る</router-link>
+    <h1>Todo追加</h1>
     <p>
       <label for="title">タイトル</label>
       <br />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
@@ -23,6 +25,7 @@ export default {
     },
     registerTodo() {
       const todo = {
+        id: uuidv4(),
         title: this.title,
       };
       this.$root.addTodo(todo);
@@ -33,11 +36,4 @@ export default {
 </script>
 
 <style scoped>
-#create-todo {
-  width: 80%;
-  margin: auto;
-}
-#title {
-  width: 90%;
-}
 </style>

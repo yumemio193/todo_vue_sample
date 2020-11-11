@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="checkbox" class="checkbox" />
-    <div class="todo_detail">
+    <div class="todo_detail" @click="toEditTodo()">
       {{todo.title}}
     </div>
   </div>
@@ -9,7 +9,17 @@
 
 <script>
 export default {
-  props: ['todo']
+  props: ['todo'],
+  methods: {
+    toEditTodo() {
+      this.$router.push({
+        name: "edit",
+        params: {
+          todo: this.todo,
+        }
+      });
+    }
+  }
 }
 </script>
 

@@ -9,7 +9,17 @@ Vue.use(Router);
 export default new Router({
   routes: [
     { path: "/", component: TodoList },
-    { path: "/todo", component: CreateTodo },
-    { path: "/todo:uuid", component: EditTodo },
+    { path: "/create", component: CreateTodo },
+    {
+      name: "edit",
+      path: "/edit",
+      component: EditTodo,
+      props(route) {
+        console.log(route.params);
+        return {
+          ...route.params,
+        };
+      },
+    },
   ],
 });
