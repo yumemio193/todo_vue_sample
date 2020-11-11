@@ -1,25 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <p>TODOアプリ</p>
+    <hr>
+    <Todo v-for="todo in todos" :key="todo.id" :todo="todo"/>
   </div>
 </template>
 
 <script>
-
+import Todo from "./component/Todo";
+import { v4 as uuidv4 } from "uuid"
 export default {
-  name: 'App',
+  name: "App",
   components: {
+    Todo
+  },
+  data() {
+    return {
+      todos: [
+        {id: uuidv4(), title: "朝食を食べる"},
+        {id: uuidv4(), title: "昼食を食べる"},
+        {id: uuidv4(), title: "夕食を食べる"},
+      ]
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 70%;
+  margin: auto;
 }
 </style>
