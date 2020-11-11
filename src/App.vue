@@ -2,7 +2,9 @@
   <div id="app">
     <p>TODOアプリ</p>
     <hr />
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

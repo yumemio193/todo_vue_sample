@@ -4,11 +4,33 @@
     <p>
       <label for="title">タイトル</label>
       <br />
-      <input id="title" type="text" />
+      <input id="title" type="text" v-model="title"/>
     </p>
-    <button>登録</button>
+    <button @click="registerTodo">登録</button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      title: "",
+    };
+  },
+  methods: {
+    toTodoList() {
+      this.$router.push("/");
+    },
+    registerTodo() {
+      const todo = {
+        title: this.title,
+      };
+      this.$root.addTodo(todo);
+      this.toTodoList();
+    }
+  }
+};
+</script>
 
 <style scoped>
 #create-todo {
