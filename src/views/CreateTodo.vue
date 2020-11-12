@@ -1,5 +1,5 @@
 <template>
-  <div id="create-todo">
+  <v-container>
     <router-link to="/">＜ 戻る</router-link>
     <h1>Todo追加</h1>
     <p>
@@ -7,8 +7,12 @@
       <br />
       <input id="title" type="text" v-model="title"/>
     </p>
-    <button @click="registerTodo">登録</button>
-  </div>
+    <v-row>
+      <v-btn @click="registerTodo" color="success" class="font-weight-bold">
+        登録
+      </v-btn>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -36,6 +40,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

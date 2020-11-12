@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <router-link to="/">＜ 戻る</router-link>
     <h1>Todo編集</h1>
     <p>
@@ -7,8 +7,12 @@
       <br />
       <input id="title" type="text" v-model="title">
     </p>
-    <button @click="update">更新</button>
-  </div>
+    <v-row>
+      <v-btn @click="update" color="success" class="font-weight-bold">
+        更新
+      </v-btn>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
