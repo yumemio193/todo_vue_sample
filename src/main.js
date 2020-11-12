@@ -3,16 +3,21 @@ import App from './App.vue'
 import router from "./router";
 
 import todos from "./assets/mockTodo";
+import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
   router,
+
   data: {
     message: "hello",
     todos,
   },
+
+  vuetify,
+
   methods: {
     addTodo(todo) {
       this.todos.push(todo);
@@ -31,5 +36,5 @@ new Vue({
         this.todos.splice(index, 1);
       }
     }
-  },
+  }
 }).$mount('#app')
