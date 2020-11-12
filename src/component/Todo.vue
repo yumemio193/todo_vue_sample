@@ -1,8 +1,10 @@
 <template>
   <div>
     <input type="checkbox" class="checkbox" />
-    <div class="todo_detail" @click="toEditTodo()">
+    <div class="todo_detail">
       {{todo.title}}
+      <button @click="toEditTodo()">編集</button>
+      <button>削除</button>
     </div>
   </div>
 </template>
