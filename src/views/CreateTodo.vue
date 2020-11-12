@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       title: "",
+      done: false,
     };
   },
   methods: {
@@ -27,6 +28,7 @@ export default {
       const todo = {
         id: uuidv4(),
         title: this.title,
+        done: false,
       };
       this.$root.addTodo(todo);
       this.toTodoList();

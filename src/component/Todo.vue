@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="checkbox" class="checkbox" />
+    <input type="checkbox" class="checkbox" v-model="todo.done"/>
     <div class="todo_detail">
       {{todo.title}}
       <button @click="toEditTodo">編集</button>
