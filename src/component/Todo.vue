@@ -3,8 +3,8 @@
     <input type="checkbox" class="checkbox" />
     <div class="todo_detail">
       {{todo.title}}
-      <button @click="toEditTodo()">編集</button>
-      <button>削除</button>
+      <button @click="toEditTodo">編集</button>
+      <button @click="remove">削除</button>
     </div>
   </div>
 </template>
@@ -20,6 +20,12 @@ export default {
           todo: this.todo,
         }
       });
+    },
+    remove() {
+      const result = confirm("削除しますか？");
+      if (result) {
+        this.$root.removeTodo(this.todo.id);
+      }
     }
   }
 }
