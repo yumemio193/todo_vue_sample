@@ -1,14 +1,19 @@
 <template>
-  <div>
+  <v-container>
+    <v-row justify="end">
+      <v-switch 
+        v-model="hideDoneTodo"
+        label="完了したTodoを隠す"
+        class="mx-1"
+      ></v-switch>
+    </v-row>
     <button class="button" @click="toCreateTodo">新規作成</button>
-    <h1>Todoリスト</h1>
-    完了したTodoを隠す<input type="checkbox" v-model="hideDoneTodo">
     <Todo
       v-for="todo in filteredTodo"
       :key="todo.id"
       :todo="todo"
     />
-  </div>
+  </v-container>
 </template>
 
 <script>
