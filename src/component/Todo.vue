@@ -27,14 +27,6 @@
       </v-col>
     </v-row>
   </v-card>
-  <!-- <div>
-    <input type="checkbox" class="checkbox" v-model="todo.done"/>
-    <div class="todo_detail">
-      {{todo.title}}
-      <button @click="toEditTodo">編集</button>
-      <button @click="remove">削除</button>
-    </div>
-  </div> -->
 </template>
 
 <script>
