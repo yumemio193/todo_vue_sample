@@ -1,18 +1,27 @@
 <template>
-  <v-container>
-    <router-link to="/">＜ 戻る</router-link>
-    <h1>Todo編集</h1>
-    <p>
-      <label for="title">タイトル</label>
-      <br />
-      <input id="title" type="text" v-model="title">
-    </p>
-    <v-row>
-      <v-btn @click="update" color="success" class="font-weight-bold">
-        更新
-      </v-btn>
-    </v-row>
-  </v-container>
+  <v-row justify="center">
+    <v-col cols="12" sm="10" md="8" lg="6">
+      <v-card ref="form">
+        <v-card-text>
+          <v-text-field
+            ref="title"
+            v-model="title"
+            :rules="[]"
+            label="タイトル"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn @click="toTodoList" text>
+            <v-icon left>mdi-less-than</v-icon> キャンセル
+          </v-btn>
+          <v-spacer/>
+          <v-btn color="primary" @click="update">更新
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
