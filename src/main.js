@@ -19,7 +19,6 @@ new Vue({
   router,
 
   data: {
-    message: "hello",
     todos: [],
   },
 
