@@ -1,17 +1,52 @@
 <template>
-  <div>
+  <v-card min-width="400" class="my-3">
+    <v-row align="center">
+      <v-col cols="2" xl="1" lg="1" md="1" sm="1" class="text-center pr-0">
+        <v-btn @click="todo.done = !todo.done" icon color="success">
+          <v-icon x-large>{{ doneIcon }}</v-icon>
+        </v-btn>
+      </v-col>
+      <v-col>
+        <v-card-title>{{ todo.title }}</v-card-title>
+        <v-card-subtitle>{{ todo.dueDate | fromNow }}</v-card-subtitle>
+        <v-card-text>{{ todo.note }}</v-card-text>
+      </v-col>
+      <v-col cols="2" xl="1" lg="1" md="1" sm="1" class="text-center pl-0">
+        <v-row class="flex-column fill-height" justify="center">
+          <v-col class="pl-0">
+            <v-btn @click="toEditTodo" icon>
+              <v-icon>mdi-square-edit-outline</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col class="pl-0">
+            <v-btn @click="remove" icon>
+              <v-icon>mdi-trash-can-outline</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-card>
+  <!-- <div>
     <input type="checkbox" class="checkbox" v-model="todo.done"/>
     <div class="todo_detail">
       {{todo.title}}
       <button @click="toEditTodo">編集</button>
       <button @click="remove">削除</button>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
 export default {
   props: ['todo'],
+  computed: {
+    doneIcon() {
+      return this.todo.done
+        ? "mdi-checkbox-marked-circle-outline"
+        : "mdi-checkbox-blank-circle-outline";
+    },
+  },
   methods: {
     toEditTodo() {
       this.$router.push({
@@ -30,15 +65,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.checkbox {
-  display: inline-block;
-  vertical-align: middle;
-}
-.todo_detail {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: 1rem;
-}
-</style>
